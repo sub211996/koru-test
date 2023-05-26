@@ -29,7 +29,9 @@
                    placeholder="Username"
                    autocomplete="new-username"
                    required
-                   [(ngModel)]="user.username" />
+                   [(ngModel)]="user.username" 
+                   #uname="ngModel" 
+                />
 
                 <svg class="input__icon--user" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0.986097 15.1098C1.24221 15.3574 1.59146 15.5 1.95624 15.5H14.0403C14.4051 15.5 14.7543 15.3574 15.0104 15.1098C15.2665 14.8622 15.414 14.5245 15.414 14.1718V14.0818L14.8552 13.3689C14.7465 13.0238 14.0558 10.9752 13.0624 9.9097C12.7209 9.54202 12.3251 9.34692 11.8827 9.33191C11.0755 9.31691 10.4314 9.8947 10.4314 9.8947L10.377 9.96973C10.377 9.97724 9.90361 10.8702 8.30483 10.9002H7.69946C6.12395 10.8702 5.61948 9.96973 5.61948 9.96973L5.56515 9.8947C5.54187 9.87219 4.90546 9.3019 4.11383 9.33191C3.67144 9.34692 3.27563 9.54202 2.93414 9.9097C1.94071 10.9752 1.24998 13.0238 1.14132 13.3689L0.58252 14.0818V14.1718C0.58252 14.5245 0.729981 14.8622 0.986097 15.1098Z" fill="#797979"/>
@@ -46,7 +48,8 @@
                     autocomplete="new-password"
                     required
                     [class]="!isPasswordValid(user.password) ? 'input-invalid' : 'input-valid'"
-                    [(ngModel)]="user.password" 
+                    [(ngModel)]="user.password"
+                    #pass="ngModel" 
                 />
                 
                 <svg class="input__icon--pass" width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +57,7 @@
                 </svg>                        
             </div>
 
-            <div *ngIf="!isPasswordValid(user.password) && userForm.touched" class="alert custom__alert--pass">
+            <div *ngIf="!isPasswordValid(user.password) && pass.touched" class="alert custom__alert--pass">
                 <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7.2511 5.25817V8.38304C7.2511 8.79658 7.58642 9.13177 7.99982 9.13177C8.41336 9.13177 8.74855 8.79645 8.74855 8.38304V5.25817C8.74855 4.84463 8.41323 4.50944 7.99982 4.50944C7.58628 4.50944 7.2511 4.84463 7.2511 5.25817Z" fill="#C20006"/>
                     <path d="M8.00019 11.2046C8.41373 11.2046 8.74892 10.8694 8.74892 10.4559C8.74892 10.0423 8.41373 9.70716 8.00019 9.70716C7.58665 9.70716 7.25146 10.0423 7.25146 10.4559C7.25146 10.8694 7.58665 11.2046 8.00019 11.2046Z" fill="#C20006"/>

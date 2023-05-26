@@ -167,6 +167,31 @@
     font-weight: 400;
     color: #C20006;
 }
+@media screen and (max-width:1199px) {
+    .home__sec .home__left .text h1{
+        font-size: 42px;
+    }
+    .login__form{
+        max-width: 80%;
+    }
+    .lock__icon{
+        margin-top: 2em;
+    }
+}
+@media screen and (max-width:991px) {
+    .home__sec .home__left{
+        width: 60%;
+    }
+    .home__sec .home__left .text h1{
+        font-size: 30px;
+    }
+    .home__sec .home__right{
+        width: 40%;
+    }
+    .home__sec .home__left .text p{
+        font-size: 14px;
+    }
+}
 @media screen and (max-width:768px) {
     .home__sec{
         flex-direction: column-reverse;
