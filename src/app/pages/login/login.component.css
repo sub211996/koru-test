@@ -96,7 +96,7 @@
 .form__control--input input.input-invalid.ng-touched{
     border: 1px solid #FC695C;
 }
-.form__control--input input.input-valid.ng-touched{
+.form__control--input input.input-valid.ng-dirty{
     border: 1px solid #00A364;
     background:url('../../../assets/input-valid.svg') 96% 50% / 20px no-repeat #fff ;
 }

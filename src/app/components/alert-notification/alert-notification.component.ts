@@ -24,7 +24,6 @@ export class AlertNotificationComponent  implements OnInit, OnDestroy{
   ngOnInit():void{
     this.loginSuccess = this.authService.loginSuccess.subscribe(res => {
       console.log(res + 'alert')
-      this.showNotification = res
       this.notificationMessage = 'Login Successfully'
       setTimeout(()=>{
         this.onAlertClosed()
@@ -34,7 +33,6 @@ export class AlertNotificationComponent  implements OnInit, OnDestroy{
     this.isDeleteSuccess = this.dataService.isDeleteSuccess.subscribe(res => {
       this.showNotification = res
       this.notificationMessage = 'Deleted Successfully'
-      console.log(res + 'delete success')
       setTimeout(()=>{
         this.onAlertClosed()
       }, 5000)
@@ -45,7 +43,6 @@ export class AlertNotificationComponent  implements OnInit, OnDestroy{
 
   onAlertClosed(){
     this.showNotification = false;
-    console.log(this.showNotification)
   }
 
   ngOnDestroy(){

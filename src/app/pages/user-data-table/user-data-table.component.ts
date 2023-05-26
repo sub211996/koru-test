@@ -54,31 +54,27 @@ export class UserDataTableComponent implements OnInit{
     for (let i = 0; i < this.userData.length; i++) {
       this.userData[i].checked = this.checkAll;
     }
-    console.log(this.checkAll)
-
     if (this.checkAll){
       for (let i = 0; i < this.userData.length; i++) {
         this.userData[i].checked = this.checkAll;
         this.idsToDelete.push(this.userData[i].id)
-        
       }
     } else if (!this.checkAll){
-
+      for (let i = 0; i < this.userData.length; i++) {
+        this.userData[i].checked = this.checkAll;
+        this.idsToDelete = []
+      }
     }
-    
-
   }
 
   onCheckSingle(value: string, element: HTMLInputElement){
     const id = value
     if(element.checked){
       this.idsToDelete.push(id)
-      this.checkAll = false
+      console.log(this.idsToDelete + ' onchecksingle checked')
     } else {
-      const idToDelete = id[0]
-      const index = this.idsToDelete.findIndex(obj => id == idToDelete);
-      const newData = [ ...this.idsToDelete.slice(0, index), ...this.idsToDelete.slice(index + 1)]
-      this.idsToDelete = newData
+      let g = this.idsToDelete.indexOf(id)
+      let removedId = this.idsToDelete.splice(g, 1)
       this.checkAll = false
     }
   }
@@ -95,15 +91,13 @@ export class UserDataTableComponent implements OnInit{
     } else {
       const idToDelete = id[0]
       const index = this.userData.findIndex(obj => obj.id === idToDelete);
-
-      console.log(index)
       const newData = [
         ...this.userData.slice(0, index),
         ...this.userData.slice(index + 1)
       ]
       this.userData = newData
       this.userDataService.checkDeleteSuccess(true)
-      this.idsToDelete = []
+      // this.idsToDelete = []
     }
   }
 
