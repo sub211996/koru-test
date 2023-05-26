@@ -97,6 +97,15 @@ export class UserDataTableComponent implements OnInit{
       ]
       this.userData = newData
       this.userDataService.checkDeleteSuccess(true)
+
+      if(id.length == 1){
+        this.idsToDelete = []
+      }
+
+      // let g = this.idsToDelete.indexOf(idToDelete)
+      // let removedId = this.idsToDelete.splice(g, 1)
+      // this.idsToDelete = removedId
+      console.log(idToDelete, this.idsToDelete)
       // this.idsToDelete = []
       // this.checkAll = false
     }
