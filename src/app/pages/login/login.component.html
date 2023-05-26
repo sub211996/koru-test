@@ -70,8 +70,8 @@
                 <a href="#" class="forgot__pass--anchor">Forgot Password?</a>
             </div>
             
-            <button [class]="userForm.invalid || !isPasswordValid(user.password) ? 'disabled submit__btn' : 'submit__btn'" 
-                type="submit" [disabled]="userForm.invalid || !isPasswordValid(user.password)"
+            <button [class]="userForm.invalid && !isPasswordValid(user.password) ? 'disabled submit__btn' : 'submit__btn'" 
+                type="submit" [disabled]="userForm.invalid && !isPasswordValid(user.password)"
             >
                     Login
             </button>
