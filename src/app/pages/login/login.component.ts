@@ -33,10 +33,8 @@ export class LoginComponent implements OnInit{
         number.test(password) &&
         special.test(password)
     ) {
-      console.log('j')
         return true;
     }
-    console.log('h')
     return false;
   }
 
