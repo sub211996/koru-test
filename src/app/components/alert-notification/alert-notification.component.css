@@ -1,0 +1,34 @@
+.alert__notification{
+    position: fixed;
+    bottom: 2em;
+    right:2em;
+    background-color: #5CB85C;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition : 0.5s ease-out all;
+}
+.alert__notification span{
+    margin: 0 8px;
+}
+
+.alert__notification.active{
+    pointer-events: auto;
+    opacity: 1;
+    visibility: visible;
+    bottom: 2em;
+}
+
+.alert__notification.inactive{
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    bottom:0;
+}
+.close-notification-icon{
+    margin-left: 10px;
+}
