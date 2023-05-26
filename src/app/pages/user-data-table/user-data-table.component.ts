@@ -98,6 +98,7 @@ export class UserDataTableComponent implements OnInit{
       this.userData = newData
       this.userDataService.checkDeleteSuccess(true)
       this.idsToDelete = []
+      this.checkAll = false
     }
   }
 
