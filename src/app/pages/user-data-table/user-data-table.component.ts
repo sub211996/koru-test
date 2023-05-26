@@ -75,6 +75,7 @@ export class UserDataTableComponent implements OnInit{
     } else {
       let g = this.idsToDelete.indexOf(id)
       let removedId = this.idsToDelete.splice(g, 1)
+      this.idsToDelete = removedId
       this.checkAll = false
     }
   }
@@ -90,24 +91,27 @@ export class UserDataTableComponent implements OnInit{
       this.idsToDelete = []
     } else {
       const idToDelete = id[0]
+
       const index = this.userData.findIndex(obj => obj.id === idToDelete);
+      console.log(index, index)
       const newData = [
         ...this.userData.slice(0, index),
         ...this.userData.slice(index + 1)
       ]
       this.userData = newData
+      // const index = this.userData.indexOf(idToDelete)
       this.userDataService.checkDeleteSuccess(true)
 
-      if(id.length == 1){
-        this.idsToDelete = []
-      }
+    
 
-      // let g = this.idsToDelete.indexOf(idToDelete)
-      // let removedId = this.idsToDelete.splice(g, 1)
-      // this.idsToDelete = removedId
+      let g = this.idsToDelete.indexOf(idToDelete)
+      let removedId = this.idsToDelete.splice(g, 1)
+      this.idsToDelete = removedId
       console.log(idToDelete, this.idsToDelete)
       // this.idsToDelete = []
-      // this.checkAll = false
+      this.checkAll = false
+
+      this.toggleAll()
     }
   }
 
