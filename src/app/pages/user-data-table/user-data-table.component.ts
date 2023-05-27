@@ -71,8 +71,13 @@ export class UserDataTableComponent implements OnInit{
     const id = value
     if(element.checked){
       this.idsToDelete.push(id)
-      console.log(this.idsToDelete + ' onchecksingle checked')
     } else {
+      if(this.idsToDelete.length > 1){
+        let g= this.idsToDelete.findIndex(item => item == id)
+        this.idsToDelete.splice(g, 1)
+        this.checkAll = false
+        return
+      }
       let g = this.idsToDelete.indexOf(id)
       let removedId = this.idsToDelete.splice(g, 1)
       this.idsToDelete = removedId
@@ -98,28 +103,7 @@ export class UserDataTableComponent implements OnInit{
         ...this.userData.slice(index + 1)
       ]
       this.userData = newData
-      // const index = this.userData.indexOf(idToDelete)
       this.userDataService.checkDeleteSuccess(true)
-
-      console.log(this.idsToDelete)
-      let g = this.idsToDelete.indexOf(idToDelete)
-      if(g == -1){
-        
-      } else {
-        g = this.idsToDelete.indexOf(idToDelete)
-      console.log(g)
-      let removieId = this.idsToDelete.splice(g, 1)
-        console.log(removieId)
-        console.log(idToDelete, this.idsToDelete)
-      }
-
-      
-      // this.idsToDelete = removedId
-      
-      // this.idsToDelete = []
-      // this.checkAll = false
-
-      // this.toggleAll()
     }
   }
 
