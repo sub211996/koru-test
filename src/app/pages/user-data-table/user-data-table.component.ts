@@ -105,13 +105,13 @@ export class UserDataTableComponent implements OnInit{
     
 
       let g = this.idsToDelete.indexOf(idToDelete)
-      let removedId = this.idsToDelete.splice(g, 1)
-      this.idsToDelete = removedId
+      this.idsToDelete.splice(g, 1)
+      // this.idsToDelete = removedId
       console.log(idToDelete, this.idsToDelete)
       // this.idsToDelete = []
-      this.checkAll = false
+      // this.checkAll = false
 
-      this.toggleAll()
+      // this.toggleAll()
     }
   }
 
