@@ -23,7 +23,7 @@ export class AlertNotificationComponent  implements OnInit, OnDestroy{
   
   ngOnInit():void{
     this.loginSuccess = this.authService.loginSuccess.subscribe(res => {
-      console.log(res + 'alert')
+      this.showNotification = res
       this.notificationMessage = 'Login Successfully'
       setTimeout(()=>{
         this.onAlertClosed()
